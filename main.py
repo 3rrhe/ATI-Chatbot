@@ -2,21 +2,21 @@ import Constants as keys
 from telegram.ext import *
 import Responsers as R
 
-print("Bot iniciado...")
+print(keys.BOT_NAME, "iniciado...")
 
 
 def start_command(update, context):
     if keys.ENV == 'dev':
         print("comando start ejecutado")
 
-    update.message.reply_text("Escribe algo para que te ayude prro")
+    update.message.reply_text("Estoy aqui para ayudarte, escribe algo para comenzar o usa el comando /help")
 
 
 def help_command(update, context):
     if keys.ENV == 'dev':
         print("comando help ejecutado")
 
-    update.message.reply_text("Mijo googlee, no quiera que le resuelvan todo")
+    update.message.reply_text("Por el momento no te puedo ayudar aca")
 
 
 def handle_message(update, context):
@@ -24,7 +24,7 @@ def handle_message(update, context):
         print("Se ha recibido un mensaje")
 
     text = str(update.message.text).lower()
-    response = R.sample_responses(text)
+    response = R.basic_responses(text)
 
     update.message.reply_text(response)
 

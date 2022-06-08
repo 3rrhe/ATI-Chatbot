@@ -4,5 +4,6 @@ the constants are the same and the content is placed in quotes, for example API_
 '''
 import ConstantsEnvLocal as keys
 
+BOT_NAME = keys.BOT_NAME
 API_KEY = keys.API_KEY
 ENV = keys.ENV  # This can be 'dev' or 'prod'
