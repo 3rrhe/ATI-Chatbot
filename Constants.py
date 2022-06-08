@@ -7,3 +7,4 @@ import ConstantsEnvLocal as keys
 BOT_NAME = keys.BOT_NAME
 API_KEY = keys.API_KEY
 ENV = keys.ENV  # This can be 'dev' or 'prod'
+STORE_API_URL = keys.STORE_API_URL

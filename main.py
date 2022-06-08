@@ -27,6 +27,7 @@ def main():
     dp.add_handler(CommandHandler("start", cmms.start_command))
     dp.add_handler(CommandHandler("help", cmms.help_command))
     dp.add_handler(CommandHandler("covid19", cmms.covid19_command))
+    dp.add_handler(CommandHandler("products", cmms.get_products_command))
 
     dp.add_handler(MessageHandler(Filters.text, handle_message))
 
