@@ -1,4 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
+ConstantsLocal.py
+ConstantsEnvLocal.py
+
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -183,5 +186,3 @@ fabric.properties
 
 # idea folder, uncomment if you don't need it
 /.idea/
-
-/ConstantsLocal.py
