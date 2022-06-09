@@ -15,4 +15,7 @@ def basic_responses(input_text):
         date_time = now.strftime("%d/%m/%y, %H:%M:%S")
         return 'La hora y fecha actual es: ' + str(date_time)
 
-    return "Lo siento, creo que con eso no te puedo ayudar :'/"
+    if user_message in ("necesito comprar chanclas", 'comprar chanclas', 'comprar', 'chanclas', 'compra de chanclas', 'chanclas en venta', 'Busco un par de chanclas',):
+        return "Será un gusto ayudar, por favor enviame el siguiente mensaje /products para que puedas ver nuestras chanclas disponibles"
+
+    return "El dios de la chanclas no me deja ayudarte con eso, lo siento :'/"

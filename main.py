@@ -1,22 +1,9 @@
 import Constants as keys
+import Commands as cmms
 from telegram.ext import *
 import Responsers as R
 
 print(keys.BOT_NAME, "iniciado...")
-
-
-def start_command(update, context):
-    if keys.ENV == 'dev':
-        print("comando start ejecutado")
-
-    update.message.reply_text("Estoy aqui para ayudarte, escribe algo para comenzar o usa el comando /help")
-
-
-def help_command(update, context):
-    if keys.ENV == 'dev':
-        print("comando help ejecutado")
-
-    update.message.reply_text("Por el momento no te puedo ayudar aca")
 
 
 def handle_message(update, context):
@@ -37,8 +24,11 @@ def main():
     updater = Updater(keys.API_KEY, use_context=True)
     dp = updater.dispatcher
 
-    dp.add_handler(CommandHandler("start", start_command))
-    dp.add_handler(CommandHandler("help", help_command))
+    dp.add_handler(CommandHandler("start", cmms.start_command))
+    dp.add_handler(CommandHandler("help", cmms.help_command))
+    dp.add_handler(CommandHandler("covid19", cmms.covid19_command))
+    dp.add_handler(CommandHandler("products", cmms.get_products_command))
+    dp.add_handler(CommandHandler("chanclas", cmms.get_products_command))
 
     dp.add_handler(MessageHandler(Filters.text, handle_message))
 
