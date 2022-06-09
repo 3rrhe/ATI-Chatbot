@@ -14,7 +14,7 @@ def help_command(update, context):
     if keys.ENV == 'dev':
         print("comando help ejecutado")
 
-    update.message.reply_text("Por el momento no te puedo ayudar aca")
+    update.message.reply_text("Puedes usar los siguientes comandos: /covid19 /products /help /chanclas")
 
 
 # This is just for test, must be deleted at the end
@@ -35,8 +35,10 @@ def get_products_command(update, context):
         data = response.json()
         print(data)
         for product in data:
-            update.message.reply_html('<b>' + product['name'] + '</b>')
-            update.message.reply_photo("http://images.squarespace-cdn.com/content/v1/6076307f64fc1d140c6d2977/1632344330072-HUNRW92Y71KNRO4DGIBA/Mesa+de+trabajo+12.jpg")
-            update.message.reply_animation("https://c.tenor.com/-bIbvmWNTWwAAAAM/eunha-viviz.gif")
+            print(product['quantity'] > 0)
+
+            if product['quantity'] > 0:
+                update.message.reply_html('<b>' + product['name'] + '</b><pre>\n</pre>Precio: Q' + str(product['priceIva']) + '<pre>\n</pre>Marca: ' + product['brand'])
+                update.message.reply_photo(product['image'])
     else:  # something went wrong
         update.message.reply_text("No te puedo ofrecer esa información en este momento")
